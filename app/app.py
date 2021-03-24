@@ -1,6 +1,6 @@
 import os
 
-from flask import Flask
+from flask import Flask, render_template
 from flask_cors import CORS
 from . import settings, controllers, models
 from .extensions import db
@@ -14,6 +14,7 @@ def create_app(config_object=settings):
 
 	register_extensions(app)
 	register_blueprints(app)
+	register_errorhandlers(app)
 	return app
 
 def register_extensions(app):
@@ -32,6 +33,22 @@ def register_blueprints(app):
 	app.register_blueprint(controllers.web.blueprint)
 
 	return None
+
+def register_errorhandlers(app):
+    """Register error handlers."""
+    @app.errorhandler(401)
+    def internal_error(error):
+        return render_template('401.html'), 401
+
+    @app.errorhandler(404)
+    def page_not_found(error):
+        return render_template('404.html'), 404
+
+    @app.errorhandler(500)
+    def internal_error(error):
+        return render_template('500.html'), 500
+
+    return None
 
 app = create_app()
 CORS(app)
