@@ -1,0 +1,28 @@
+{% extends "layouts/layout.html" %}
+
+{% block header %}
+<div class="bg-gray-light border-bottom border-gray-light">
+  <div class="container text-center py-5 mb-4">
+    <div class="mt-3 mb-4">
+      <h1 class="h1 mb-0">Kilofarms</h1>
+      <h2 class="h4 text-gray font-weight-light">My submission for Kilofarms task.</h2>
+    </div>
+    <a class="btn btn-primary mt-2" href="https://bitbucket.org/Sadham-Hussian/kilofarmstask/src/main/" >
+      Problem statement
+    </a>
+  </div>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="text-gray-light text-center py-5 my-5">
+  <p class="lead">See API documentation <a class="link-reset text-blue" href="https://documenter.getpostman.com/view/12829759/TzCH9pF9">here.</a></p>
+  <p class="lead">Available paths in web application</p>
+  <p class="lead"><code>/</code> - home page</p>
+  <p class="lead"><code>/web/login</code> - login page</p>
+  <p class="lead"><code>/web/signup</code> - signup page</p>
+  <p class="lead"><code>/web/getAllProducts</code> - page to display all projects</p>
+  <p class="lead"><code>/web/viewProduct/id</code> - page to display details of particular project</p>
+  <p class="lead">Other API's are also implemented. Check the API documentation.</p>
+</div>
+{% endblock %}

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Kilofarms Task</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" >
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/auth.css') }}" >
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/colors.css') }}" >
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+  </head>
+  <body>
+  	<nav class="navbar navbar-expand-lg navbar-dark bg-gray-dark text-white">
+  		<div class="container">
+    		<a class="text-white link-reset text-inherit pr-3">
+      			Kilofarms Task
+    		</a>
+
+    		<div class="collapse navbar-collapse" id="navbarSupportedContent">
+      			<ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                  <a class="nav-link text-inherit" href="{{ url_for('home.index') }}">
+                    Home
+                  </a>
+                </li>
+          			<li class="nav-item">
+            			<a class="nav-link text-inherit" href="{{ url_for('web.web_signup') }}">
+              			Signup
+            			</a>
+          			</li>
+      			</ul>
+		    </div>
+  		</div>
+	</nav>
+	<div class="login-box">
+  		<h2>Login</h2>
+  		<form action="#" onsubmit="return false">
+    		<div class="user-box">
+      			<input type="text" name="username" required="" id="username">
+      			<label>Username</label>
+    		</div>
+    		<div class="user-box">
+      			<input type="password" name="password" required="" id="password">
+      			<label>Password</label>
+    		</div>
+    		<button class="btn btn-primary mt-2" onclick="handleOnSubmit()">
+      		<span></span>
+      		<span></span>
+      		<span></span>
+      		<span></span>
+      			Login
+    		</button>
+  		</form>
+	</div>
+  <!-- Scripts for Bootstrap -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="{{ url_for('static', filename='js/auth.js') }}"></script>
+    <script>
+      if (isLoggedIn()) {
+        window.location.href = "/web/getAllProducts"
+      }
+
+    	function handleOnSubmit() {
+    		let username = document.getElementById("username").value
+    		let password = document.getElementById("password").value
+
+    		login(username, password).then((result) => {
+    			if (result.success == false) {
+    				alert(result.error)
+    			}
+    			else
+    				window.location.href = "/web/getAllProducts"
+    		})
+
+    		return false
+    	}
+    </script>
+  </body>
+</html>

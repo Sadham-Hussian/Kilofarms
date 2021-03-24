@@ -1,0 +1,26 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-gray-dark text-white">
+  <div class="container">
+    <a class="text-white link-reset text-inherit pr-3">
+      Kilofarms Task
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link text-inherit" href="{{ url_for('web.web_login') }}">
+              Login
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-inherit" href="{{ url_for('web.web_signup') }}">
+              Signup
+            </a>
+          </li>
+      </ul>
+
+    </div>
+  </div>
+</nav>
