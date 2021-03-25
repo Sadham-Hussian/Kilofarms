@@ -1,20 +1,38 @@
 from flask import Blueprint, request, jsonify, make_response
+
 from app.services.auth import token_required
 from app.services.products import Product
 
 blueprint = Blueprint('products', __name__, url_prefix='/products')
 
+
 @blueprint.route('/createSKU', methods=["POST"])
 @token_required
 def create_product(current_user):
+	"""
+	This endpoint is used to create a new product.
+	It uses token_required decorator to authorise using the 
+	JWT token in Authorisation header.
+
+	request body:
+		sku_name : name of the product
+		sku_category : category of the product
+		price : product price
+	"""
 	content = request.get_json()
 	product_service = Product(content, current_user.username)
 
 	return product_service.post_create_product()
 
+
 @blueprint.route('/product', methods=["GET", "PUT", "DELETE"])
 @token_required
 def view_product(current_user):
+	"""
+	This endpoint is used to do read, update and delete operations
+	on the product model.
+	"""
+
 	if request.method == "GET":
 		content = {}
 		response = {}
@@ -73,6 +91,7 @@ def view_product(current_user):
 		product_service = Product(content, current_user.username)
 
 		return product_service.delete_product()
+
 
 @blueprint.route("/getAllProducts", methods=["GET"])
 @token_required
