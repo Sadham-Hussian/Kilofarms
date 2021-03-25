@@ -25,7 +25,20 @@ This Repository contains source code for the problem statement given by Kilofarm
 
 2. Run from command line:
 	1. Make sure mysql is hearing in localhost:3306 and update credentials in database URI in app/settings.py.
-	2. Run the following command to start the flask application
+	2. Install virtualenv and create and activate a virtualenv
+	
+		```
+		virtualenv venv
+		source venv/bin/activate
+		```
+	
+	3. Install the requirements
+	
+		```
+		pip install -r requirements.txt
+		```
+		
+	4. Run the following command to start the flask application
 	
 		```
 		flask run
