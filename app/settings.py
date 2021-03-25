@@ -6,6 +6,6 @@ from dotenv import load_dotenv
 load_dotenv()
 
 ENV = 'development'
-SQLALCHEMY_DATABASE_URI = 'mysql+pymysql://root:supersecret@mysql/kilofarms?host=mysql?port=3306'
+SQLALCHEMY_DATABASE_URI = 'mysql+pymysql://root:supersecret@localhost/kilofarms?host=localhost?port=3306'
 SECRET_KEY = 'kilofarms'
 SQLALCHEMY_TRACK_MODIFICATIONS = False
